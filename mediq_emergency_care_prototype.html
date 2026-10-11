@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MEDIQ | Smart Emergency Care</title>
+<style>
+:root{--navy:#102b49;--blue:#0877df;--sky:#eaf4ff;--teal:#0b9b82;--red:#e8455b;--ink:#173657;--muted:#647d98;--line:#dce8f4;--bg:#f4f8fc;--white:#fff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--ink)}
+button,input,select,textarea{font:inherit}button{cursor:pointer;border:0;border-radius:9px;padding:10px 13px;font-weight:700}
+.app{display:grid;grid-template-columns:230px 1fr;min-height:100vh}.sidebar{background:linear-gradient(180deg,#102b49,#0b2340);color:#fff;padding:22px 14px;display:flex;flex-direction:column;gap:8px}.brand{display:flex;gap:10px;align-items:center;padding:0 8px 22px;border-bottom:1px solid #ffffff20;margin-bottom:10px}.logo{width:42px;height:42px;border-radius:13px;background:#1499f5;display:grid;place-items:center;font-size:23px}.brand strong{font-size:23px;letter-spacing:.5px}.brand small{display:block;color:#b8d4ef;font-size:10px;margin-top:2px}.nav{display:flex;align-items:center;gap:12px;padding:12px 11px;border-radius:9px;color:#d7e9fa;background:transparent;text-align:left;width:100%}.nav:hover,.nav.active{background:#1479c9;color:white}.side-note{margin-top:auto;border:1px solid #ffffff22;background:#ffffff08;border-radius:14px;padding:17px;line-height:1.6;color:#d3e7fa;font-size:13px}.main{min-width:0}.topbar{background:#fff;border-bottom:1px solid var(--line);padding:15px 24px;display:flex;gap:18px;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:3}.search{flex:1;max-width:620px;display:flex;gap:8px;background:#f0f6fc;border:1px solid var(--line);padding:5px 8px 5px 13px;border-radius:12px}.search input{border:0;outline:0;background:transparent;flex:1;min-width:0;padding:8px}.profile{display:flex;align-items:center;gap:10px;font-size:13px}.avatar{width:38px;height:38px;border-radius:50%;background:#dceeff;display:grid;place-items:center;font-size:20px}.content{padding:20px;max-width:1700px;margin:auto}.welcome{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}.welcome h1{font-size:24px;margin:0 0 5px}.welcome p{margin:0;color:var(--muted);font-size:13px}.tag{font-size:11px;padding:5px 9px;border-radius:30px;background:#fff0f1;color:#c62b44;font-weight:800}.grid{display:grid;grid-template-columns:minmax(270px, .95fr) minmax(360px,1.35fr) minmax(270px,.95fr);gap:14px;align-items:start}.stack{display:grid;gap:14px;min-width:0}.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:15px;box-shadow:0 3px 12px #1c4a7008;min-width:0}.card h2{font-size:15px;margin:0 0 13px;display:flex;align-items:center;gap:9px}.ico{display:inline-grid;place-items:center;width:29px;height:29px;border-radius:9px;background:var(--sky);font-size:17px}.person{display:flex;align-items:center;gap:10px;padding-bottom:12px;border-bottom:1px solid var(--line)}.person .avatar{width:45px;height:45px}.person strong{font-size:14px}.person small{display:block;color:var(--muted);margin-top:4px;font-size:11px}.field{padding:9px 0;border-bottom:1px solid #edf2f7;font-size:12px;line-height:1.5}.field:last-child{border-bottom:0}.field b{display:block;color:#47627f;font-size:10px;text-transform:uppercase;letter-spacing:.4px;margin-bottom:3px}.red{color:var(--red)}.green{color:var(--teal)}.vitals{display:grid;grid-template-columns:repeat(2,1fr);gap:7px;margin-top:7px}.vital{background:#f7faff;border:1px solid #e6eff8;border-radius:9px;padding:8px;font-size:11px}.vital strong{display:block;font-size:14px;margin-top:4px}.primary{background:var(--blue);color:#fff}.success{background:#0b9b82;color:#fff}.danger{background:#e8455b;color:#fff}.soft{background:#eaf4ff;color:#075cb0}.full{width:100%;margin-top:10px}.map-card{padding:0;overflow:hidden}.maphead{padding:14px 15px;display:flex;justify-content:space-between;align-items:center}.maphead h2{margin:0}.mapbox{height:400px;position:relative;overflow:hidden;background:#e8f0e7}.mapbox svg{width:100%;height:100%;display:block}.map-label{position:absolute;top:14px;left:14px;background:white;border:1px solid var(--line);box-shadow:0 4px 15px #163e611a;border-radius:10px;padding:10px 12px;font-size:12px}.map-label strong{display:block;font-size:15px;margin-bottom:3px}.map-legend{position:absolute;bottom:13px;right:13px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:11px;line-height:1.9}.map-actions{position:absolute;right:13px;top:13px;display:grid;gap:5px}.map-actions button{padding:7px 10px;background:#fff;border:1px solid var(--line)}.status{display:inline-block;padding:5px 8px;border-radius:30px;background:#dff8ee;color:#087657;font-size:10px;font-weight:800}.timeline{display:grid;gap:0}.step{display:grid;grid-template-columns:22px 1fr auto;gap:8px;align-items:start;padding:8px 0;font-size:11px;border-bottom:1px solid #f0f4f8}.dot{width:18px;height:18px;border-radius:50%;background:#e1f6ed;color:#078568;display:grid;place-items:center;font-size:10px}.step time{color:var(--muted)}.resource-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}.resource-title{display:flex;align-items:center;gap:8px;font-weight:800;margin-bottom:12px}.resource-title span{font-size:20px}.table{width:100%;border-collapse:collapse;font-size:11px}.table th,.table td{text-align:left;padding:9px 6px;border-bottom:1px solid #edf2f7}.table th{color:var(--muted);font-weight:700;background:#f8fbff}.table-wrap{overflow-x:auto}.bloodrows{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:10px}.blood{border:1px solid #f6dce1;background:#fff7f8;border-radius:8px;text-align:center;padding:8px 3px;font-size:11px}.blood strong{display:block;font-size:15px;color:#cb2946;margin:3px 0}.muted{color:var(--muted)}.hospital{display:flex;gap:10px;padding:11px 0;border-bottom:1px solid #edf2f7}.hospital:last-child{border-bottom:0}.hospital-icon{width:38px;height:38px;border-radius:10px;background:#e8f4ff;display:grid;place-items:center;font-size:19px;flex-shrink:0}.hospital-info{flex:1;min-width:0}.hospital-info strong{font-size:12px}.hospital-info small{display:block;color:var(--muted);font-size:10px;margin-top:4px;line-height:1.4}.mini{padding:6px 9px;font-size:10px;background:#fff;border:1px solid #b8d8f6;color:#075cb0;height:max-content}.tabs{display:flex;background:#f0f6fc;border-radius:9px;padding:3px;gap:3px;margin-bottom:10px}.tabs button{flex:1;background:transparent;color:var(--muted);padding:7px;font-size:11px}.tabs button.active{background:var(--blue);color:#fff}.disclaimer{font-size:10px;color:var(--muted);line-height:1.5;margin-top:9px}.toast{position:fixed;bottom:20px;right:20px;background:#102b49;color:#fff;padding:13px 17px;border-radius:11px;box-shadow:0 10px 35px #0c254533;z-index:10;max-width:340px;font-size:13px;display:none}.modalback{display:none;position:fixed;inset:0;background:#0c203a88;z-index:20;align-items:center;justify-content:center;padding:20px}.modal{background:#fff;border-radius:16px;padding:22px;width:min(520px,100%);max-height:90vh;overflow:auto}.modal h2{margin-top:0}.modal label{display:block;font-size:12px;font-weight:700;margin:12px 0 5px}.modal input,.modal select,.modal textarea{width:100%;padding:10px;border:1px solid var(--line);border-radius:8px;background:#fbfdff}.modal textarea{min-height:70px}.modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:16px}.mobile-menu{display:none}
+@media(max-width:1150px){.grid{grid-template-columns:minmax(250px,.9fr) minmax(320px,1.1fr)}.rightcol{grid-column:1/-1;grid-template-columns:1fr 1fr}.resource-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.app{grid-template-columns:1fr}.sidebar{display:none}.topbar{padding:11px 13px}.profile div:not(.avatar){display:none}.content{padding:12px}.welcome h1{font-size:20px}.grid,.resource-grid{grid-template-columns:1fr}.rightcol{grid-column:auto;grid-template-columns:1fr}.mapbox{height:330px}.maphead{padding:12px}.search{max-width:none}.tag{display:none}.bloodrows{grid-template-columns:repeat(4,1fr)}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><div class="logo">💙</div><div><strong>MEDIQ</strong><small>Smart Care. Faster Response.</small></div></div>
+  <button class="nav active" data-target="home">⌂ <span>Overview</span></button>
+  <button class="nav" data-action="booking">✚ <span>Emergency Request</span></button>
+  <button class="nav" data-target="tracking">🚑 <span>Ambulance Tracking</span></button>
+  <button class="nav" data-target="patient">▣ <span>Patient Information</span></button>
+  <button class="nav" data-target="organs">♡ <span>Organ Availability</span></button>
+  <button class="nav" data-target="blood">🩸 <span>Blood Donation</span></button>
+  <button class="nav" data-target="hospitals">✚ <span>Nearby Hospitals</span></button>
+  <button class="nav" data-action="message">▤ <span>Messages</span></button>
+  <button class="nav" data-action="settings">⚙ <span>Settings</span></button>
+  <div class="side-note"><div style="font-size:25px;margin-bottom:8px">♡</div><strong>Every second matters.</strong><br/>MEDIQ connects people, emergency teams, and healthcare resources.<br/><br/><small>Prototype dashboard • sample data only</small></div>
+</aside>
+<main class="main" id="home">
+  <header class="topbar">
+    <div class="search">⌕ <input id="globalSearch" placeholder="Search hospitals, blood banks, or services..." /><button class="primary" id="searchBtn">Search</button></div>
+    <div class="profile"><span>🔔</span><div class="avatar">👩🏻‍⚕️</div><div><strong>Hospital Staff</strong><br/><small class="muted">Demo account ▾</small></div></div>
+  </header>
+  <div class="content">
+    <div class="welcome"><div><h1>Emergency Care Dashboard</h1><p>Coordinate ambulance response, patient handover, and nearby medical resources.</p></div><span class="tag">DEMO DATA — NOT LIVE</span></div>
+    <div class="grid">
+      <section class="stack">
+        <article class="card" id="patient">
+          <h2><span class="ico">🪪</span> Patient Information <span class="tag" style="margin-left:auto">Urgent</span></h2>
+          <div class="person"><div class="avatar">🧑🏻</div><div><strong id="patientName">Demo Patient</strong><small>Age: 45 · Booking ID: MEDIQ-10482</small></div></div>
+          <div class="field"><b>Reason for emergency</b><span id="reason">Serious road traffic incident (sample)</span></div>
+          <div class="field"><b>Reported condition</b><span class="red">Possible organ failure — requires clinician assessment</span><br/><span class="muted">Example only; not a diagnosis.</span></div>
+          <div class="field"><b>Symptoms / notes</b><span>Reported weakness, dizziness; verify with patient or clinician.</span></div>
+          <div class="field"><b>Known allergies</b><span>Not yet verified</span></div>
+          <div class="field"><b>Vitals (sample only)</b><div class="vitals"><div class="vital">❤️ Blood pressure<strong>— / —</strong></div><div class="vital">💓 Heart rate<strong>Not entered</strong></div><div class="vital">◉ Oxygen saturation<strong>Not entered</strong></div><div class="vital">🌡 Temperature<strong>Not entered</strong></div></div></div>
+          <div class="field"><b>Potential transplant coordination</b><span class="red">Specialist assessment needed</span><br/><span class="muted">Organ failure does not automatically mean a transplant is needed. Authorized transplant teams must assess and coordinate through approved networks.</span></div>
+          <button class="primary full" data-action="share">↗ Share handover with authorized hospital staff</button>
+        </article>
+        <article class="card" id="organs">
+          <div class="resource-title"><span>🫀</span> Organ Availability & Coordination</div>
+          <div class="field"><b>Required organ / specialist need</b><select id="organType" style="width:100%;padding:9px;border:1px solid var(--line);border-radius:8px;margin-top:4px"><option>Liver transplant assessment</option><option>Kidney transplant assessment</option><option>Heart transplant assessment</option><option>Lung transplant assessment</option><option>Not yet determined by clinician</option></select></div>
+          <div class="field"><b>Availability in current hospital</b><span class="red">Not confirmed</span></div>
+          <div class="table-wrap"><table class="table"><thead><tr><th>Facility</th><th>Distance*</th><th>Coordination</th></tr></thead><tbody><tr><td>City Care Hospital</td><td>2.4 km</td><td><span class="green">Contact team</span></td></tr><tr><td>Sunrise Medical Center</td><td>6.8 km</td><td>Verify service</td></tr><tr><td>Green Valley Hospital</td><td>12.3 km</td><td>Verify service</td></tr></tbody></table></div>
+          <button class="success full" data-action="organ">Request authorized transplant-team coordination</button>
+          <p class="disclaimer">*Illustrative facilities and distances. This does not show donor-organ inventory. Organ allocation and transfers must follow applicable law and authorized transplant-network procedures.</p>
+        </article>
+      </section>
+      <section class="stack">
+        <article class="card map-card" id="tracking">
+          <div class="maphead"><h2><span class="ico">🗺️</span> Fastest Route & Ambulance Tracking</h2><span class="status" id="tripStatus">On the way</span></div>
+          <div class="mapbox">
+            <svg viewBox="0 0 600 440" preserveAspectRatio="xMidYMid slice" aria-label="Illustrative route map">
+              <rect width="600" height="440" fill="#e8f0e7"/>
+              <path d="M-30 60 L650 300 M-30 250 L650 70 M40 -20 L200 470 M330 -20 L460 470 M520 -20 L390 470" stroke="#fff" stroke-width="19" fill="none"/>
+              <path d="M-30 60 L650 300 M-30 250 L650 70 M40 -20 L200 470 M330 -20 L460 470 M520 -20 L390 470" stroke="#d6dfd5" stroke-width="2" fill="none"/>
+              <path d="M0 355 C90 330 130 385 215 335 S370 275 420 320 S520 360 620 315" stroke="#a6d9ef" stroke-width="27" fill="none"/>
+              <path d="M0 355 C90 330 130 385 215 335 S370 275 420 320 S520 360 620 315" stroke="#d4edf8" stroke-width="20" fill="none"/>
+              <g fill="#d7e9cf"><rect x="28" y="20" width="60" height="42" rx="7"/><rect x="160" y="35" width="48" height="36" rx="7"/><rect x="430" y="50" width="88" height="55" rx="7"/><rect x="28" y="170" width="65" height="43" rx="7"/><rect x="470" y="170" width="70" height="50" rx="7"/><rect x="280" y="375" width="80" height="40" rx="7"/></g>
+              <g fill="#9ab78c" font-size="10"><text x="38" y="43">Park</text><text x="448" y="78">Green Park</text><text x="290" y="399">Riverside</text></g>
+              <path d="M92 365 C145 330 180 320 220 276 S305 235 350 190 S415 148 470 92" stroke="#fff" stroke-width="13" fill="none" stroke-linecap="round"/>
+              <path d="M92 365 C145 330 180 320 220 276 S305 235 350 190 S415 148 470 92" stroke="#0877df" stroke-width="7" fill="none" stroke-linecap="round"/>
+              <g transform="translate(92 365)"><circle r="16" fill="#0877df" stroke="white" stroke-width="4"/><text x="-5" y="5" fill="white" font-size="15">H</text></g>
+              <g transform="translate(470 92)"><path d="M0 -19 C-12 -19 -17 -8 -17 0 C-17 12 0 25 0 25 S17 12 17 0 C17 -8 12 -19 0 -19Z" fill="#e8455b" stroke="white" stroke-width="3"/><circle cy="-2" r="5" fill="white"/></g>
+              <g id="ambulanceMarker" transform="translate(318 221)"><circle r="19" fill="#fff" stroke="#0877df" stroke-width="4"/><text x="-12" y="6" font-size="21">🚑</text></g>
+              <g fill="#173657" font-size="12" font-weight="700"><text x="43" y="399">City Care Hospital</text><text x="405" y="54">Pickup / Incident</text><text x="236" y="245" fill="#0877df">Fastest suggested route</text></g>
+              <g fill="#fff" stroke="#dce8f4"><rect x="18" y="90" width="45" height="25" rx="5"/><rect x="520" y="260" width="45" height="25" rx="5"/></g><g fill="#607b95" font-size="10"><text x="28" y="106">A 44</text><text x="530" y="276">B 12</text></g>
+            </svg>
+            <div class="map-label"><strong id="eta">18 min · 12.4 km</strong><span class="green">Suggested fastest route*</span></div>
+            <div class="map-actions"><button id="zoomIn" title="Zoom in">＋</button><button id="zoomOut" title="Zoom out">－</button><button id="locate">◎</button></div>
+            <div class="map-legend">🚑 Ambulance<br/>📍 Pickup location<br/>🏥 Hospital<br/><span style="color:#0877df">━━</span> Suggested route</div>
+          </div>
+          <div style="padding:12px 15px;display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:12px"><span><b>Ambulance #A102</b><br/><span class="muted">Demo GPS position · updates simulated</span></span><button class="primary" data-action="simulate">▶ Simulate next update</button></div>
+          <p class="disclaimer" style="padding:0 15px 12px;margin:0">*Illustrative map and ETA, not connected to live GPS, traffic, or routing. A production version needs a map/routing API and verified ambulance GPS feed.</p>
+        </article>
+        <article class="card">
+          <h2><span class="ico">🕒</span> Live Tracking & Trip Updates</h2>
+          <div class="timeline" id="timeline">
+            <div class="step"><span class="dot">✓</span><span>Emergency request received</span><time>10:24</time></div>
+            <div class="step"><span class="dot">✓</span><span>Ambulance assigned</span><time>10:27</time></div>
+            <div class="step"><span class="dot">✓</span><span>Patient picked up</span><time>10:36</time></div>
+            <div class="step"><span class="dot" style="background:#dceeff;color:#0877df">●</span><span><b>On the way to hospital</b></span><time>Now</time></div>
+            <div class="step"><span class="dot" style="background:#edf2f7;color:#647d98">○</span><span>Arrived at hospital</span><time>—</time></div>
+          </div>
+          <button class="soft full" data-action="history">View full tracking history</button>
+        </article>
+      </section>
+      <section class="stack rightcol">
+        <article class="card">
+          <h2><span class="ico">🚑</span> Ambulance Details</h2>
+          <div class="person"><div style="font-size:32px">🚑</div><div><strong>Ambulance #A102</strong><small>Advanced Life Support · Demo vehicle</small><small>Driver: Assigned demo driver</small></div></div>
+          <div class="field"><b>Current location</b>Location simulated for prototype<br/><b style="margin-top:7px">Estimated arrival</b><span class="green" id="etaSmall">18 minutes</span></div>
+          <button class="primary full" data-action="booking">Request an ambulance</button>
+        </article>
+        <article class="card" id="hospitals">
+          <h2><span class="ico">🏥</span> Nearby Hospitals</h2>
+          <div class="tabs"><button class="active" data-filter="nearby">Nearby</button><button data-filter="all">All facilities</button></div>
+          <div id="hospitalList">
+            <div class="hospital" data-search="city care hospital emergency icu transplant"><div class="hospital-icon">🏥</div><div class="hospital-info"><strong>City Care Hospital</strong><small>2.4 km · ~18 min<br/>Emergency · ICU · Specialist assessment</small></div><button class="mini" data-action="hospital">Details</button></div>
+            <div class="hospital" data-search="sunrise medical center emergency trauma"><div class="hospital-icon">🏥</div><div class="hospital-info"><strong>Sunrise Medical Center</strong><small>6.8 km · ~25 min<br/>Emergency · Trauma care</small></div><button class="mini" data-action="hospital">Details</button></div>
+            <div class="hospital" data-search="green valley hospital emergency transplant"><div class="hospital-icon">🏥</div><div class="hospital-info"><strong>Green Valley Hospital</strong><small>12.3 km · ~32 min<br/>Emergency · Specialist services to verify</small></div><button class="mini" data-action="hospital">Details</button></div>
+          </div>
+          <button class="soft full" data-action="hospitals">Find more hospitals</button>
+          <p class="disclaimer">Facility names, services, and travel times are sample data. Verify actual emergency capability and bed availability before dispatch.</p>
+        </article>
+        <article class="card" id="blood">
+          <div class="resource-title"><span>🩸</span> Blood Donation Resources</div>
+          <div class="tabs"><button class="active" data-bloodtab="camps">Donation camps</button><button data-bloodtab="banks">Blood banks</button></div>
+          <div id="bloodList">
+            <div class="hospital"><div class="hospital-icon">🩸</div><div class="hospital-info"><strong>Community Blood Donation Camp</strong><small>3.5 km · Today (sample listing)<br/>Contact details need verification</small></div><button class="mini" data-action="bloodplace">Details</button></div>
+            <div class="hospital"><div class="hospital-icon">🏥</div><div class="hospital-info"><strong>City Blood Bank</strong><small>5.6 km · Blood components (sample)<br/>Call to confirm current stock</small></div><button class="mini" data-action="bloodplace">Details</button></div>
+          </div>
+          <b style="font-size:12px">Illustrative inventory by blood group</b>
+          <div class="bloodrows"><div class="blood">A+<strong>—</strong><span>units</span></div><div class="blood">A−<strong>—</strong><span>units</span></div><div class="blood">B+<strong>—</strong><span>units</span></div><div class="blood">B−<strong>—</strong><span>units</span></div><div class="blood">AB+<strong>—</strong><span>units</span></div><div class="blood">AB−<strong>—</strong><span>units</span></div><div class="blood">O+<strong>—</strong><span>units</span></div><div class="blood">O−<strong>—</strong><span>units</span></div></div>
+          <button class="danger full" data-action="bloodrequest">Find blood / request donor coordination</button>
+          <p class="disclaimer">Blood availability must come from verified blood-bank feeds and include component type, unit count, compatibility checks, and last-updated time. Units are safer and more meaningful than “liters” for clinical inventory.</p>
+        </article>
+      </section>
+    </div>
+    <footer style="text-align:center;padding:22px 0;color:var(--muted);font-size:11px">💙 MEDIQ · Smart Emergency Care Platform · Prototype only · <a href="#" style="color:#0877df" data-action="privacy">Privacy & safety</a></footer>
+  </div>
+</main>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="modalback" id="modalback"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><h2 id="modalTitle">MEDIQ</h2><p id="modalIntro" class="muted" style="font-size:13px;line-height:1.5"></p><div id="modalBody"></div><div class="modal-actions"><button id="cancelModal" class="soft">Cancel</button><button id="confirmModal" class="primary">Continue</button></div></div></div>
+<script>
+const toastEl=document.getElementById('toast');let toastTimer;function toast(msg){toastEl.textContent=msg;toastEl.style.display='block';clearTimeout(toastTimer);toastTimer=setTimeout(()=>toastEl.style.display='none',4200)}
+const modalback=document.getElementById('modalback'),modalTitle=document.getElementById('modalTitle'),modalIntro=document.getElementById('modalIntro'),modalBody=document.getElementById('modalBody'),confirmModal=document.getElementById('confirmModal');let modalAction=null;
+function openModal(title,intro,fields,actionLabel,callback){modalTitle.textContent=title;modalIntro.textContent=intro;modalBody.innerHTML=fields;confirmModal.textContent=actionLabel;modalAction=callback;modalback.style.display='flex'}
+function closeModal(){modalback.style.display='none';modalAction=null}document.getElementById('cancelModal').onclick=closeModal;modalback.addEventListener('click',e=>{if(e.target===modalback)closeModal()});confirmModal.onclick=()=>{if(modalAction)modalAction();closeModal()};
+function action(name){
+ if(name==='booking')openModal('Request an ambulance','Prototype form only. In an emergency, contact your local emergency number; this demo does not dispatch vehicles.','<label>Pickup location</label><input id="pickup" placeholder="Enter address or landmark" required><label>Emergency summary</label><textarea id="summary" placeholder="Describe what help is needed"></textarea><label>Contact number</label><input id="phone" placeholder="Phone number">','Save demo request',()=>toast('Demo request saved locally in this page only. No ambulance was dispatched.'));
+ else if(name==='share')openModal('Share patient handover','Only share the minimum necessary information with verified, authorized care teams. This demo does not transmit data.','<label>Receiving hospital / team</label><input id="receiver" placeholder="Hospital or authorized team"><label>Information to include</label><select id="shareScope"><option>Emergency summary and reported symptoms</option><option>Emergency summary, allergies and verified vitals</option><option>Full clinical handover (authorized staff only)</option></select><label><input type="checkbox" id="consent" style="width:auto"> I confirm I am authorized to share this information.</label>','Prepare handover',()=>{if(!document.getElementById('consent')?.checked){toast('Please confirm authorization before preparing a handover.');return}toast('Demo handover prepared; no patient data was sent.')});
+ else if(name==='organ')openModal('Transplant-team coordination','This is a coordination request, not organ reservation or allocation. The authorized clinical/transplant team must confirm eligibility, availability, compatibility, and legal requirements.','<label>Receiving transplant center</label><input id="transCenter" placeholder="Verified center or authorized network"><label>Request priority</label><select id="transPriority"><option>Urgent clinician review</option><option>Routine specialist review</option></select><label>Clinical contact / reference</label><input id="clinicalRef" placeholder="Hospital contact or case reference">','Prepare coordination request',()=>toast('Demo coordination request prepared. No organ availability was checked and no transplant was arranged.'));
+ else if(name==='bloodrequest')openModal('Blood resource coordination','For real use, connect verified blood-bank inventory. Clinical staff must confirm component, group, compatibility, and availability directly with the blood bank.','<label>Blood group (if known)</label><select id="bloodGroup"><option>Not known yet</option><option>A+</option><option>A−</option><option>B+</option><option>B−</option><option>AB+</option><option>AB−</option><option>O+</option><option>O−</option></select><label>Component needed</label><select id="component"><option>Whole blood (if clinically indicated)</option><option>Packed red blood cells</option><option>Platelets</option><option>Plasma</option></select><label>Hospital / area</label><input id="bloodArea" placeholder="Hospital name or area">','Prepare blood-bank inquiry',()=>toast('Demo inquiry prepared. No blood stock was checked and no donor was contacted.'));
+ else if(name==='simulate'){let el=document.getElementById('eta'),n=parseInt(el.textContent)||18;n=Math.max(2,n-3);el.textContent=n+' min · 12.4 km';document.getElementById('etaSmall').textContent=n+' minutes';toast('Simulated update: estimated arrival changed to '+n+' minutes. Not a real GPS update.')}
+ else if(name==='history')toast('Trip history is sample-only. Production history requires authenticated trip records.');
+ else if(name==='hospital')toast('Demo hospital details only. Verify emergency services, contact details, and capacity directly.');
+ else if(name==='bloodplace')toast('Sample resource listing. Confirm address, operating hours, and live stock with the facility.');
+ else if(name==='hospitals')toast('Connect a places/map provider and verified facility directory to search real nearby hospitals.');
+ else if(name==='message')toast('Messaging is a planned feature; no messages are sent in this prototype.');
+ else if(name==='settings')toast('Settings demo: production version should include secure roles, MFA, and access logs.');
+ else if(name==='privacy')toast('Use consent, role-based access, encryption, audit logs, retention limits, and applicable healthcare/privacy rules.');
+}
+document.querySelectorAll('[data-action]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();action(b.dataset.action)}));
+document.querySelectorAll('.nav[data-target]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.nav').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.getElementById(b.dataset.target)?.scrollIntoView({behavior:'smooth',block:'start'})}));
+document.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-filter]').forEach(x=>x.classList.remove('active'));b.classList.add('active');toast(b.dataset.filter==='all'?'Production version can show all verified facilities.':'Showing illustrative nearby facilities.')}))
+document.querySelectorAll('[data-bloodtab]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-bloodtab]').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.getElementById('bloodList').innerHTML=b.dataset.bloodtab==='camps'?'<div class="hospital"><div class="hospital-icon">🩸</div><div class="hospital-info"><strong>Community Blood Donation Camp</strong><small>3.5 km · Sample listing<br/>Verify date and registration details</small></div><button class="mini" data-action="bloodplace">Details</button></div>':'<div class="hospital"><div class="hospital-icon">🏥</div><div class="hospital-info"><strong>City Blood Bank</strong><small>5.6 km · Sample listing<br/>Inventory unavailable in this prototype</small></div><button class="mini" data-action="bloodplace">Details</button></div><div class="hospital"><div class="hospital-icon">🏥</div><div class="hospital-info"><strong>Regional Blood Centre</strong><small>9.1 km · Sample listing<br/>Call to confirm stock</small></div><button class="mini" data-action="bloodplace">Details</button></div>';document.querySelectorAll('#bloodList [data-action]').forEach(x=>x.onclick=()=>action(x.dataset.action))}));
+document.getElementById('searchBtn').onclick=()=>{const q=document.getElementById('globalSearch').value.toLowerCase().trim();let count=0;document.querySelectorAll('#hospitalList .hospital').forEach(el=>{const show=!q||el.dataset.search.includes(q)||el.innerText.toLowerCase().includes(q);el.style.display=show?'flex':'none';if(show)count++});document.getElementById('hospitals').scrollIntoView({behavior:'smooth'});toast(q?(count?'Found '+count+' matching sample facility/facilities.':'No sample facilities match; connect a live directory for real search.'):'Showing sample facilities. Enter a hospital or service to filter.')}
+document.getElementById('globalSearch').addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('searchBtn').click()});
+let zoom=1;document.getElementById('zoomIn').onclick=()=>{zoom=Math.min(1.5,zoom+.1);document.querySelector('.mapbox svg').style.transform='scale('+zoom+')'};document.getElementById('zoomOut').onclick=()=>{zoom=Math.max(.8,zoom-.1);document.querySelector('.mapbox svg').style.transform='scale('+zoom+')'};document.getElementById('locate').onclick=()=>{if(!navigator.geolocation){toast('Geolocation is not supported in this browser.');return}navigator.geolocation.getCurrentPosition(p=>toast('Your browser location was received for this demo. Latitude/longitude were not sent to a server.'),()=>toast('Location unavailable or permission denied.'));};
+</script>
+</body>
+</html>
